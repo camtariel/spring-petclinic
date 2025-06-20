@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main
-
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
@@ -36,4 +37,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=camtariel_spring-petclinic_bb7692f7-bcd3-4d9a-933a-c587687d93e8
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=camtariel_spring-petclinic_fd883c1c-764c-40f5-a957-946352eec1b5 -Dsonar.projectName='spring-petclinic'
